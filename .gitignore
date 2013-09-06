@@ -1,0 +1,10 @@
+.buildpath
+.DS_Store
+.project
+.vagrant
+.settings
+*.bak
+*.swp
+composer.phar
+composer.lock
+vendor/*
