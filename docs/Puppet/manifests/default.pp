@@ -164,42 +164,6 @@ class php {
 	}
 }
 
-class tools {
-	
-	# PEAR
-	$pear1="pear chanel-update pear.php.net"
-	$pear2="pear config-set auto_discover 1"
-	$pear3="pecl chanel-update pecl.php.net"
-    exec {$pear1:
-		path   => "/usr/bin",
-		before => Exec[$pear2],
-	}
-	exec {$pear2:
-		path   => "/usr/bin",
-		before => Exec[$pear3],
-	}
-	exec {$pear3:
-		path   => "/usr/bin",
-	}
-	#ENDS PEAR
-    
-	# PHING
-	$phing1="pear channel-discover pear.phing.info"
-	$phing2="pear install --alldeps phing/phing"
-	exec {$phing1:
-		path    => "/usr/bin",
-		onlyif  => "test ! -f /usr/bin/phing",
-		require => Exec[$pear1],
-		before  => Exec[$phing2],
-	}
-	exec {$phing2:
-		path    => "/usr/bin",
-		onlyif  => "test ! -f /usr/bin/phing",
-		require => Exec[$phing1],
-	}
-	# ENDS PHING
-}
-
 stage {'preinstall': before => Stage['main']}
 class apt_get_update { exec {'apt-get -y update': path => "/usr/bin" } }
 class {'apt_get_update': stage => preinstall}
@@ -209,4 +173,3 @@ include vim
 include utils
 include apache
 include php
-include tools
