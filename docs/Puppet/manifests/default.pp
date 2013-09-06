@@ -63,9 +63,7 @@ class vim {
 
 class utils {
     $packages = [
-        'whois',
         'lynx',
-        'telnet',
         'wget',
         'curl',
         'tar',
@@ -74,7 +72,6 @@ class utils {
         'bzip2',
         'nmap',
         'git',
-        'subversion',
         'build-essential',
 	]
 	package {$packages: ensure  => installed}
