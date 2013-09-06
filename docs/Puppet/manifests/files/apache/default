@@ -3,11 +3,8 @@
 	ServerAdmin webmaster@jdaemon.dev
 	ServerSignature Off
 	
-	#Ambiente em que o site estarodando.
-	SetEnv APPLICATION_ENV development
-	
-	DocumentRoot /vagrant/src
-	<Directory /vagrant/src>
+	DocumentRoot /vagrant
+	<Directory /vagrant>
 		Options Indexes FollowSymLinks
 		AllowOverride All
 		Order allow,deny
