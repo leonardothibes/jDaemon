@@ -70,7 +70,7 @@
 			return parseInt(settings.timeout) * 1000;
 		}
 		
-		//Starting de plugin execution.
+		//Starting the plugin execution.
 		this.init();
 	};
 })( jQuery );
